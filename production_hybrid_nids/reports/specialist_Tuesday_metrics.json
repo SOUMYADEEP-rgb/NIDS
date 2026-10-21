@@ -1,0 +1,47 @@
+{
+  "day": "Tuesday",
+  "classes": [
+    "BENIGN",
+    "FTP-Patator",
+    "SSH-Patator"
+  ],
+  "n_train_windows": 312127,
+  "n_test_windows": 133764,
+  "classification_report": {
+    "BENIGN": {
+      "precision": 0.9994511224545803,
+      "recall": 0.9834045704939282,
+      "f1-score": 0.9913629169307828,
+      "support": 129614.0
+    },
+    "FTP-Patator": {
+      "precision": 0.67624466571835,
+      "recall": 0.998320033599328,
+      "f1-score": 0.8063093622795116,
+      "support": 2381.0
+    },
+    "SSH-Patator": {
+      "precision": 0.6248159057437408,
+      "recall": 0.9592990390050876,
+      "f1-score": 0.7567447045707916,
+      "support": 1769.0
+    },
+    "accuracy": 0.9833512753805209,
+    "macro avg": {
+      "precision": 0.766837231305557,
+      "recall": 0.9803412143661147,
+      "f1-score": 0.8514723279270285,
+      "support": 133764.0
+    },
+    "weighted avg": {
+      "precision": 0.9887435757914242,
+      "recall": 0.9833512753805209,
+      "f1-score": 0.9849661873825523,
+      "support": 133764.0
+    }
+  },
+  "attack_vs_benign_average_precision": 0.9406211564877595,
+  "attack_vs_benign_roc_auc": 0.9975589809668411,
+  "macro_multiclass_roc_auc_ovr": 0.9978107866843615,
+  "split": "StratifiedShuffleSplit 70/30"
+}

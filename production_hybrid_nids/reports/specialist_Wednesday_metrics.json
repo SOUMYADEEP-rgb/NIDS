@@ -1,0 +1,68 @@
+{
+  "day": "Wednesday",
+  "classes": [
+    "BENIGN",
+    "DoS GoldenEye",
+    "DoS Hulk",
+    "DoS Slowhttptest",
+    "DoS slowloris",
+    "Heartbleed"
+  ],
+  "n_train_windows": 484883,
+  "n_test_windows": 207802,
+  "classification_report": {
+    "BENIGN": {
+      "precision": 0.9954539879181871,
+      "recall": 0.983719696969697,
+      "f1-score": 0.9895520568197406,
+      "support": 132000.0
+    },
+    "DoS GoldenEye": {
+      "precision": 0.5912576687116564,
+      "recall": 0.9987046632124352,
+      "f1-score": 0.7427745664739884,
+      "support": 3088.0
+    },
+    "DoS Hulk": {
+      "precision": 0.998722405443147,
+      "recall": 0.9697931392631488,
+      "f1-score": 0.9840452003864282,
+      "support": 69322.0
+    },
+    "DoS Slowhttptest": {
+      "precision": 0.6996984058595433,
+      "recall": 0.9842424242424243,
+      "f1-score": 0.8179299924452279,
+      "support": 1650.0
+    },
+    "DoS slowloris": {
+      "precision": 0.6872756282409254,
+      "recall": 0.9907993099482462,
+      "f1-score": 0.8115873763542157,
+      "support": 1739.0
+    },
+    "Heartbleed": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 3.0
+    },
+    "accuracy": 0.9793457233327879,
+    "macro avg": {
+      "precision": 0.6620680160289099,
+      "recall": 0.8212098722726585,
+      "f1-score": 0.7243148654132668,
+      "support": 207802.0
+    },
+    "weighted avg": {
+      "precision": 0.985596093220909,
+      "recall": 0.9793457233327879,
+      "f1-score": 0.9811814885211886,
+      "support": 207802.0
+    }
+  },
+  "attack_vs_benign_average_precision": 0.9973221761543685,
+  "attack_vs_benign_roc_auc": 0.9988073713074653,
+  "macro_multiclass_roc_auc_ovr": 0.9815861138490196,
+  "split": "StratifiedShuffleSplit 70/30"
+}

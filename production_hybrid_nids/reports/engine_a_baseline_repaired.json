@@ -1,0 +1,104 @@
+{
+  "evaluation_timestamp": "Sun Oct 11 01:12:27 2026",
+  "active_threshold": 0.020888455749791503,
+  "p99_threshold": 0.023884247988462448,
+  "Thursday": {
+    "day": "Thursday",
+    "auc": 0.5901523390493382,
+    "ap": 0.07681967662388102,
+    "attack_recall_active": 2.6173285198555956,
+    "benign_fpr_active": 2.6533333333333333,
+    "family_breakdown": [
+      {
+        "day": "Thursday",
+        "label": "BENIGN",
+        "evaluated_samples": 30000,
+        "recall_active_pct": 2.6533333333333333,
+        "recall_p99_pct": 2.25,
+        "median_mse": 0.0035113664343953133,
+        "mean_mse": 0.006359504535794258
+      },
+      {
+        "day": "Thursday",
+        "label": "Infiltration",
+        "evaluated_samples": 36,
+        "recall_active_pct": 41.66666666666667,
+        "recall_p99_pct": 30.555555555555557,
+        "median_mse": 0.018788326531648636,
+        "mean_mse": 0.021654576063156128
+      },
+      {
+        "day": "Thursday",
+        "label": "Web Attack - Brute Force",
+        "evaluated_samples": 1507,
+        "recall_active_pct": 2.45520902455209,
+        "recall_p99_pct": 1.4598540145985401,
+        "median_mse": 0.004400521516799927,
+        "mean_mse": 0.006241537164896727
+      },
+      {
+        "day": "Thursday",
+        "label": "Web Attack - Sql Injection",
+        "evaluated_samples": 21,
+        "recall_active_pct": 0.0,
+        "recall_p99_pct": 0.0,
+        "median_mse": 0.003812143113464117,
+        "mean_mse": 0.004879956133663654
+      },
+      {
+        "day": "Thursday",
+        "label": "Web Attack - XSS",
+        "evaluated_samples": 652,
+        "recall_active_pct": 0.9202453987730062,
+        "recall_p99_pct": 0.7668711656441718,
+        "median_mse": 0.004287957679480314,
+        "mean_mse": 0.00558124715462327
+      }
+    ]
+  },
+  "Friday": {
+    "day": "Friday",
+    "auc": 0.8945789489874659,
+    "ap": 0.8067024536558504,
+    "attack_recall_active": 46.89044609898016,
+    "benign_fpr_active": 9.503333333333334,
+    "family_breakdown": [
+      {
+        "day": "Friday",
+        "label": "BENIGN",
+        "evaluated_samples": 30000,
+        "recall_active_pct": 9.503333333333334,
+        "recall_p99_pct": 8.870000000000001,
+        "median_mse": 0.0032052984461188316,
+        "mean_mse": 0.01254719216376543
+      },
+      {
+        "day": "Friday",
+        "label": "Bot",
+        "evaluated_samples": 1966,
+        "recall_active_pct": 3.814852492370295,
+        "recall_p99_pct": 2.136317395727365,
+        "median_mse": 0.004157590679824352,
+        "mean_mse": 0.006301681976765394
+      },
+      {
+        "day": "Friday",
+        "label": "DDoS",
+        "evaluated_samples": 15000,
+        "recall_active_pct": 95.11333333333334,
+        "recall_p99_pct": 94.65333333333334,
+        "median_mse": 0.06928355991840363,
+        "mean_mse": 0.0672624483704567
+      },
+      {
+        "day": "Friday",
+        "label": "PortScan",
+        "evaluated_samples": 15000,
+        "recall_active_pct": 4.3133333333333335,
+        "recall_p99_pct": 3.1266666666666665,
+        "median_mse": 0.016786087304353714,
+        "mean_mse": 0.016848986968398094
+      }
+    ]
+  }
+}

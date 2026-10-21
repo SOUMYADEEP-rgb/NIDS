@@ -1,0 +1,77 @@
+{
+  "timestamp": "Wed Oct 21 10:13:07 2026",
+  "total_clustered_flows": 21158,
+  "n_clusters": 5,
+  "metrics": {
+    "silhouette_score": 0.5938676595687866,
+    "calinski_harabasz_index": 12578.5023722424,
+    "davies_bouldin_index": 0.9908195427101829
+  },
+  "hdbscan_summary": {
+    "n_clusters_found": 74,
+    "noise_ratio_pct": 19.302391530390395
+  },
+  "cluster_audit": [
+    {
+      "cluster_id": 0,
+      "size": 7651,
+      "purity_pct": 85.73,
+      "dominant_label": "PortScan",
+      "label_breakdown": {
+        "PortScan": 6559,
+        "BENIGN": 1090,
+        "DDoS": 2
+      }
+    },
+    {
+      "cluster_id": 1,
+      "size": 4166,
+      "purity_pct": 98.44,
+      "dominant_label": "DDoS",
+      "label_breakdown": {
+        "DDoS": 4101,
+        "BENIGN": 58,
+        "PortScan": 5,
+        "Web Attack - XSS": 1,
+        "Web Attack - Sql Injection": 1
+      }
+    },
+    {
+      "cluster_id": 2,
+      "size": 1945,
+      "purity_pct": 61.85,
+      "dominant_label": "Web Attack - Brute Force",
+      "label_breakdown": {
+        "Web Attack - Brute Force": 1203,
+        "Web Attack - XSS": 582,
+        "BENIGN": 124,
+        "PortScan": 33,
+        "DDoS": 3
+      }
+    },
+    {
+      "cluster_id": 3,
+      "size": 2875,
+      "purity_pct": 91.69,
+      "dominant_label": "DDoS",
+      "label_breakdown": {
+        "DDoS": 2636,
+        "BENIGN": 236,
+        "Infiltration": 3
+      }
+    },
+    {
+      "cluster_id": 4,
+      "size": 4521,
+      "purity_pct": 62.2,
+      "dominant_label": "BENIGN",
+      "label_breakdown": {
+        "BENIGN": 2812,
+        "DDoS": 1550,
+        "Web Attack - Brute Force": 74,
+        "Infiltration": 31,
+        "Bot": 28
+      }
+    }
+  ]
+}

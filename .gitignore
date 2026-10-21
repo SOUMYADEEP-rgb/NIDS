@@ -1,0 +1,12 @@
+@(
+.venv/
+__pycache__/
+*.zip
+*.csv
+*.parquet
+*.npy
+*.keras
+raw/
+processed/
+extracted_generated_flows/
+)

@@ -1,0 +1,145 @@
+{
+  "timestamp": "Sun Oct 11 13:39:54 2026",
+  "thresholds": {
+    "calibration_source": "Monday Benign 20% validation split (105,983 flows)",
+    "mean_mse": {
+      "p90": 0.005017412826418877,
+      "p95": 0.008019608445465565,
+      "p97": 0.011018648743629456,
+      "p99": 0.02142924629151821,
+      "p99_5": 0.03234972432255745
+    },
+    "top3_mse": {
+      "p90": 0.028504155576229095,
+      "p95": 0.04595472291111946,
+      "p97": 0.06281939893960953,
+      "p99": 0.12192059308290482,
+      "p99_5": 0.21063485741615295
+    },
+    "max_mse": {
+      "p90": 0.04642791673541069,
+      "p95": 0.07324787229299545,
+      "p97": 0.10133056342601776,
+      "p99": 0.1963922083377838,
+      "p99_5": 0.3516005277633667
+    }
+  },
+  "Thursday": {
+    "day": "Thursday",
+    "flows_evaluated": 50000,
+    "attacks_evaluated": 233,
+    "mean_mse_metrics": {
+      "roc_auc": 0.8378658281497358,
+      "ap": 0.01725059130419084,
+      "recall_p99": 4.721030042918455,
+      "benign_fpr": 1.079028271746338
+    },
+    "top3_mse_metrics": {
+      "roc_auc": 0.9004573328879962,
+      "ap": 0.0445583944471513,
+      "recall_p99": 4.721030042918455,
+      "benign_fpr": 1.1011312717262443
+    },
+    "max_feature_metrics": {
+      "roc_auc": 0.893934662566185,
+      "ap": 0.04208696607735953
+    },
+    "per_family_breakdown": [
+      {
+        "label": "BENIGN",
+        "count": 49767,
+        "recall_mean_mse_p99": 1.079028271746338,
+        "recall_top3_mse_p99": 1.1011312717262443,
+        "median_mean_mse": 0.0009877495467662811,
+        "median_top3_mse": 0.004994312301278114
+      },
+      {
+        "label": "Infiltration",
+        "count": 3,
+        "recall_mean_mse_p99": 100.0,
+        "recall_top3_mse_p99": 100.0,
+        "median_mean_mse": 0.030310828238725662,
+        "median_top3_mse": 0.170306995511055
+      },
+      {
+        "label": "Web Attack - Brute Force",
+        "count": 156,
+        "recall_mean_mse_p99": 3.8461538461538463,
+        "recall_top3_mse_p99": 3.8461538461538463,
+        "median_mean_mse": 0.0072798170149326324,
+        "median_top3_mse": 0.05448673665523529
+      },
+      {
+        "label": "Web Attack - Sql Injection",
+        "count": 1,
+        "recall_mean_mse_p99": 0.0,
+        "recall_top3_mse_p99": 0.0,
+        "median_mean_mse": 0.00497850589454174,
+        "median_top3_mse": 0.02529613859951496
+      },
+      {
+        "label": "Web Attack - XSS",
+        "count": 73,
+        "recall_mean_mse_p99": 2.73972602739726,
+        "recall_top3_mse_p99": 2.73972602739726,
+        "median_mean_mse": 0.007178690284490585,
+        "median_top3_mse": 0.053345829248428345
+      }
+    ]
+  },
+  "Friday": {
+    "day": "Friday",
+    "flows_evaluated": 70000,
+    "attacks_evaluated": 28566,
+    "mean_mse_metrics": {
+      "roc_auc": 0.8992273573973552,
+      "ap": 0.7194446957119007,
+      "recall_p99": 27.459217251277746,
+      "benign_fpr": 7.824491963122074
+    },
+    "top3_mse_metrics": {
+      "roc_auc": 0.8726949483774992,
+      "ap": 0.6842321041854511,
+      "recall_p99": 20.8919694742001,
+      "benign_fpr": 7.57349037022735
+    },
+    "max_feature_metrics": {
+      "roc_auc": 0.8492551933204423,
+      "ap": 0.6552556767341778
+    },
+    "per_family_breakdown": [
+      {
+        "label": "BENIGN",
+        "count": 41434,
+        "recall_mean_mse_p99": 7.824491963122074,
+        "recall_top3_mse_p99": 7.57349037022735,
+        "median_mean_mse": 0.0008096764795482159,
+        "median_top3_mse": 0.004121930338442326
+      },
+      {
+        "label": "Bot",
+        "count": 206,
+        "recall_mean_mse_p99": 1.4563106796116505,
+        "recall_top3_mse_p99": 0.9708737864077669,
+        "median_mean_mse": 0.0043030111119151115,
+        "median_top3_mse": 0.015507664531469345
+      },
+      {
+        "label": "DDoS",
+        "count": 12658,
+        "recall_mean_mse_p99": 61.57370832674987,
+        "recall_top3_mse_p99": 47.021646389635016,
+        "median_mean_mse": 0.023533735424280167,
+        "median_top3_mse": 0.11833511292934418
+      },
+      {
+        "label": "PortScan",
+        "count": 15702,
+        "recall_mean_mse_p99": 0.29932492676092215,
+        "recall_top3_mse_p99": 0.08916061648197682,
+        "median_mean_mse": 0.012446727603673935,
+        "median_top3_mse": 0.05567067861557007
+      }
+    ]
+  }
+}

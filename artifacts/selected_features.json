@@ -1,0 +1,77 @@
+{
+  "k": 40,
+  "features": [
+    "Flow IAT Mean",
+    "Packet Length Mean",
+    "Bwd Packets/s",
+    "Packet Length Variance",
+    "Fwd Header Length",
+    "Fwd Packet Length Max",
+    "Flow Packets/s",
+    "Bwd Packet Length Max",
+    "Flow Duration",
+    "Fwd IAT Mean",
+    "Flow IAT Max",
+    "Bwd Header Length",
+    "Fwd IAT Std",
+    "Flow IAT Std",
+    "Flow Bytes/s",
+    "Total Fwd Packets",
+    "Fwd Packet Length Mean",
+    "Total Length of Fwd Packets",
+    "Init_Win_bytes_forward",
+    "Init_Win_bytes_backward",
+    "act_data_pkt_fwd",
+    "Bwd IAT Total",
+    "Bwd IAT Mean",
+    "Bwd IAT Max",
+    "Bwd IAT Std",
+    "Active Min",
+    "Active Mean",
+    "Fwd IAT Min",
+    "Flow IAT Min",
+    "Active Max",
+    "min_seg_size_forward",
+    "Bwd IAT Min",
+    "Min Packet Length",
+    "Bwd Packet Length Min",
+    "Fwd Packet Length Min",
+    "PSH Flag Count",
+    "Idle Std",
+    "Down/Up Ratio",
+    "Fwd PSH Flags",
+    "URG Flag Count"
+  ],
+  "k_results": [
+    {
+      "k": 10,
+      "val_AP": 0.006747067521655255,
+      "val_ROC_AUC": 0.4857813538925034
+    },
+    {
+      "k": 20,
+      "val_AP": 0.016257577872109692,
+      "val_ROC_AUC": 0.7791309886252342
+    },
+    {
+      "k": 26,
+      "val_AP": 0.010579780764233288,
+      "val_ROC_AUC": 0.5548658610669571
+    },
+    {
+      "k": 30,
+      "val_AP": 0.28156172287083286,
+      "val_ROC_AUC": 0.9801334988300728
+    },
+    {
+      "k": 40,
+      "val_AP": 0.3422299899588132,
+      "val_ROC_AUC": 0.9791540612269719
+    },
+    {
+      "k": 44,
+      "val_AP": 0.29611946870940886,
+      "val_ROC_AUC": 0.9751551200655019
+    }
+  ]
+}

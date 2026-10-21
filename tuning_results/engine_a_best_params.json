@@ -1,0 +1,19 @@
+{
+  "trial": 9,
+  "status": "ok",
+  "n_features": 32,
+  "d_token": 64,
+  "n_heads": 8,
+  "n_blocks": 2,
+  "bottleneck_dim": 96,
+  "dropout": 0.05,
+  "learning_rate": 0.001,
+  "weight_decay": 1e-05,
+  "batch_size": 512,
+  "epochs": 12,
+  "patience": 4,
+  "seed": 42,
+  "val_loss": 0.0008774415473453701,
+  "objective": 0.0008774415473453701,
+  "seconds": 3848.51
+}

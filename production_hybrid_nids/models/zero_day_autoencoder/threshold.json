@@ -1,0 +1,12 @@
+{
+  "p90": 0.007311014924198389,
+  "p95": 0.010336806066334248,
+  "p97": 0.014022077433764935,
+  "p99": 0.023884247988462448,
+  "active": 0.020888455749791503,
+  "active_mode": "best_f2_with_fpr_cap_0.05",
+  "calibration_day": "Tuesday",
+  "target_max_fpr": 0.05,
+  "lookback": 10,
+  "train_source": "Monday BENIGN only; threshold calibrated after training"
+}

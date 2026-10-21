@@ -1,0 +1,303 @@
+{
+  "Tuesday": {
+    "day": "Tuesday",
+    "train_flows": 312136,
+    "test_flows": 133773,
+    "split_timestamp": "2017-07-04 14:39:00",
+    "classes_in_train": [
+      "BENIGN",
+      "FTP-Patator",
+      "SSH-Patator"
+    ],
+    "classes_in_test": [
+      "BENIGN",
+      "SSH-Patator"
+    ],
+    "stratified_f1": 0.9849661873825524,
+    "chronological_f1": 0.9669999907142383,
+    "drift_delta_f1": 0.017966196668314116,
+    "known_classes_f1": 0.9669999907142383,
+    "binary_threat_detection": {
+      "accuracy": 0.9779178160017343,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ap": 0.02208218399826572,
+      "roc_auc": 0.5
+    },
+    "hourly_breakdown": [
+      {
+        "day": "Tuesday",
+        "hour": 14,
+        "total_flows": 22457,
+        "benign_flows": 20501,
+        "attack_flows": 1956,
+        "attack_ratio_pct": 8.71,
+        "binary_accuracy": 0.9129,
+        "binary_precision": 0.0,
+        "binary_recall": 0.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Tuesday",
+        "hour": 15,
+        "total_flows": 48144,
+        "benign_flows": 47146,
+        "attack_flows": 998,
+        "attack_ratio_pct": 2.07,
+        "binary_accuracy": 0.9793,
+        "binary_precision": 0.0,
+        "binary_recall": 0.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Tuesday",
+        "hour": 16,
+        "total_flows": 63007,
+        "benign_flows": 63007,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 1.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Tuesday",
+        "hour": 17,
+        "total_flows": 165,
+        "benign_flows": 165,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 1.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      }
+    ]
+  },
+  "Wednesday": {
+    "day": "Wednesday",
+    "train_flows": 484892,
+    "test_flows": 207811,
+    "split_timestamp": "2017-07-05 13:26:00",
+    "classes_in_train": [
+      "BENIGN",
+      "DoS GoldenEye",
+      "DoS Hulk",
+      "DoS Slowhttptest",
+      "DoS slowloris"
+    ],
+    "classes_in_test": [
+      "BENIGN",
+      "DoS slowloris",
+      "Heartbleed"
+    ],
+    "stratified_f1": 0.9811814885211886,
+    "chronological_f1": 0.0,
+    "drift_delta_f1": 0.9811814885211886,
+    "known_classes_f1": 0.0,
+    "binary_threat_detection": {
+      "accuracy": 7.699303694222154e-05,
+      "precision": 7.699303694222154e-05,
+      "recall": 1.0,
+      "f1": 0.00015397421894171594,
+      "ap": 7.699303694222154e-05,
+      "roc_auc": 0.5
+    },
+    "hourly_breakdown": [
+      {
+        "day": "Wednesday",
+        "hour": 13,
+        "total_flows": 29376,
+        "benign_flows": 29376,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 0.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Wednesday",
+        "hour": 14,
+        "total_flows": 63868,
+        "benign_flows": 63863,
+        "attack_flows": 5,
+        "attack_ratio_pct": 0.01,
+        "binary_accuracy": 0.0001,
+        "binary_precision": 0.0001,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0002
+      },
+      {
+        "day": "Wednesday",
+        "hour": 15,
+        "total_flows": 66142,
+        "benign_flows": 66131,
+        "attack_flows": 11,
+        "attack_ratio_pct": 0.02,
+        "binary_accuracy": 0.0002,
+        "binary_precision": 0.0002,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0003
+      },
+      {
+        "day": "Wednesday",
+        "hour": 16,
+        "total_flows": 44878,
+        "benign_flows": 44878,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 0.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Wednesday",
+        "hour": 17,
+        "total_flows": 3547,
+        "benign_flows": 3547,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 0.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      }
+    ]
+  },
+  "Thursday": {
+    "day": "Thursday",
+    "train_flows": 321277,
+    "test_flows": 137691,
+    "split_timestamp": "2017-07-06 15:19:00",
+    "classes_in_train": [
+      "BENIGN",
+      "Infiltration",
+      "Web Attack - Brute Force",
+      "Web Attack - Sql Injection",
+      "Web Attack - XSS"
+    ],
+    "classes_in_test": [
+      "BENIGN",
+      "Infiltration"
+    ],
+    "stratified_f1": 0.3432221502613355,
+    "chronological_f1": 0.9998692744004067,
+    "drift_delta_f1": -0.6566471241390712,
+    "known_classes_f1": 0.9998692744004067,
+    "binary_threat_detection": {
+      "accuracy": 0.9999128483343138,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "ap": 8.715166568621043e-05,
+      "roc_auc": 0.5
+    },
+    "hourly_breakdown": [
+      {
+        "day": "Thursday",
+        "hour": 15,
+        "total_flows": 86399,
+        "benign_flows": 86387,
+        "attack_flows": 12,
+        "attack_ratio_pct": 0.01,
+        "binary_accuracy": 0.9999,
+        "binary_precision": 0.0,
+        "binary_recall": 0.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Thursday",
+        "hour": 16,
+        "total_flows": 48825,
+        "benign_flows": 48825,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 1.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      },
+      {
+        "day": "Thursday",
+        "hour": 17,
+        "total_flows": 2467,
+        "benign_flows": 2467,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 1.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      }
+    ]
+  },
+  "Friday": {
+    "day": "Friday",
+    "train_flows": 492271,
+    "test_flows": 210974,
+    "split_timestamp": "2017-07-07 15:46:00",
+    "classes_in_train": [
+      "BENIGN",
+      "Bot",
+      "PortScan"
+    ],
+    "classes_in_test": [
+      "BENIGN",
+      "DDoS"
+    ],
+    "stratified_f1": 0.9634402016097788,
+    "chronological_f1": 0.0,
+    "drift_delta_f1": 0.9634402016097788,
+    "known_classes_f1": 0.0,
+    "binary_threat_detection": {
+      "accuracy": 0.6068378093983144,
+      "precision": 0.6068378093983144,
+      "recall": 1.0,
+      "f1": 0.7553193058427556,
+      "ap": 0.6068378093983144,
+      "roc_auc": 0.5
+    },
+    "hourly_breakdown": [
+      {
+        "day": "Friday",
+        "hour": 15,
+        "total_flows": 37729,
+        "benign_flows": 13864,
+        "attack_flows": 23865,
+        "attack_ratio_pct": 63.25,
+        "binary_accuracy": 0.6325,
+        "binary_precision": 0.6325,
+        "binary_recall": 1.0,
+        "binary_f1": 0.7749
+      },
+      {
+        "day": "Friday",
+        "hour": 16,
+        "total_flows": 171693,
+        "benign_flows": 67531,
+        "attack_flows": 104162,
+        "attack_ratio_pct": 60.67,
+        "binary_accuracy": 0.6067,
+        "binary_precision": 0.6067,
+        "binary_recall": 1.0,
+        "binary_f1": 0.7552
+      },
+      {
+        "day": "Friday",
+        "hour": 17,
+        "total_flows": 1552,
+        "benign_flows": 1552,
+        "attack_flows": 0,
+        "attack_ratio_pct": 0.0,
+        "binary_accuracy": 0.0,
+        "binary_precision": 0.0,
+        "binary_recall": 1.0,
+        "binary_f1": 0.0
+      }
+    ]
+  }
+}
