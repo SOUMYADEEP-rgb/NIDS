@@ -6,49 +6,49 @@
     "DDoS",
     "PortScan"
   ],
-  "n_train_windows": 5000,
-  "n_test_windows": 5000,
+  "n_train_windows": 492262,
+  "n_test_windows": 210965,
   "classification_report": {
     "BENIGN": {
-      "precision": 0.987012987012987,
-      "recall": 0.9471202425058942,
-      "f1-score": 0.9666552079752492,
-      "support": 2969.0
+      "precision": 0.9980529243105134,
+      "recall": 0.9774394953656025,
+      "f1-score": 0.9876386636261275,
+      "support": 124288.0
     },
     "Bot": {
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1-score": 0.0,
-      "support": 13.0
+      "precision": 0.16851090736642427,
+      "recall": 0.9033898305084745,
+      "f1-score": 0.2840394351185718,
+      "support": 590.0
     },
     "DDoS": {
-      "precision": 0.9258098223615465,
-      "recall": 0.987736900780379,
-      "f1-score": 0.9557713052858684,
-      "support": 897.0
+      "precision": 0.9930144385582217,
+      "recall": 0.9955998750260362,
+      "f1-score": 0.9943054761038016,
+      "support": 38408.0
     },
     "PortScan": {
-      "precision": 0.960801393728223,
-      "recall": 0.983942908117752,
-      "f1-score": 0.9722344645218158,
-      "support": 1121.0
+      "precision": 0.997792865701133,
+      "recall": 0.9955745716143376,
+      "f1-score": 0.9966824843572838,
+      "support": 47679.0
     },
-    "accuracy": 0.9602,
+    "accuracy": 0.9846372621050885,
     "macro avg": {
-      "precision": 0.7184060507756891,
-      "recall": 0.7297000128510063,
-      "f1-score": 0.7236652444457333,
-      "support": 5000.0
+      "precision": 0.7893427839840731,
+      "recall": 0.9680009431286127,
+      "f1-score": 0.8156665148014463,
+      "support": 210965.0
     },
     "weighted avg": {
-      "precision": 0.9675902662938408,
-      "recall": 0.9602,
-      "f1-score": 0.9634402016097788,
-      "support": 5000.0
+      "precision": 0.994756892811413,
+      "recall": 0.9846372621050885,
+      "f1-score": 0.9889286203367849,
+      "support": 210965.0
     }
   },
-  "attack_vs_benign_average_precision": 0.9775178356567136,
-  "attack_vs_benign_roc_auc": 0.9834695928168956,
-  "macro_multiclass_roc_auc_ovr": 0.9341163849765673,
+  "attack_vs_benign_average_precision": 0.9994716099921107,
+  "attack_vs_benign_roc_auc": 0.9996311217080645,
+  "macro_multiclass_roc_auc_ovr": 0.9979357416184705,
   "split": "StratifiedShuffleSplit 70/30"
 }
