@@ -55,7 +55,7 @@ class EngineCConfig:
     """Configuration for Engine C Day Specialists."""
     lookback: int = 10
     batch_size: int = 512
-    epochs: int = 20
+    epochs: int = 5
     patience: int = 5
     top_k_features: int = 32
     d_token: int = 48
@@ -242,6 +242,26 @@ def make_windows(
     return win, labels[ends], ends
 
 
+def collapse_rare_thursday_labels(labels: np.ndarray | List[str]) -> np.ndarray:
+    """Collapse Thursday's tiny web-attack subtypes into a single Web Attack family.
+
+    Thursday contains a hard minority-class regime: `Infiltration` and the SQLi/XSS
+    families are represented by only a few dozen events. Training a full 5-way model
+    makes the classifier naturally collapse toward BENIGN. Grouping the web-based
+    classes into a single family improves stability while keeping the attack family
+    signal useful for reporting and investigation.
+    """
+    mapping = {
+        "BENIGN": "BENIGN",
+        "Infiltration": "Infiltration",
+        "Web Attack - Brute Force": "Web Attack",
+        "Web Attack - Sql Injection": "Web Attack",
+        "Web Attack - XSS": "Web Attack",
+    }
+    values = np.asarray([str(v) for v in labels], dtype=object)
+    return np.asarray([mapping.get(v, v) for v in values], dtype=object)
+
+
 # =====================================================================
 # Engine C Pipeline & Trainer
 # =====================================================================
@@ -390,14 +410,27 @@ class SpecialistEngine:
         feats, med, scaler = self.fit_day_pipeline(day, df, tr_idx)
         X = self.transform_day(df, feats, med, scaler)
 
-        le = LabelEncoder().fit(df["Label"].iloc[tr_idx])
+        if day == "Thursday":
+            logger.warning(
+                f"[{day}] Rare Thursday classes are being collapsed into family-level groups to avoid the BENIGN-dominant collapse "
+                "caused by tiny minority counts (Infiltration, SQLi, XSS)."
+            )
+            train_labels = collapse_rare_thursday_labels(df["Label"].iloc[tr_idx].to_numpy())
+            test_labels = collapse_rare_thursday_labels(df["Label"].iloc[te_idx].to_numpy())
+        else:
+            train_labels = df["Label"].iloc[tr_idx].to_numpy()
+            test_labels = df["Label"].iloc[te_idx].to_numpy()
+
+        le = LabelEncoder().fit(train_labels)
         classes = np.arange(len(le.classes_))
         labels = list(le.classes_)
 
-        # Filter test indices in case of any unobserved label in train
-        te_idx = te_idx[np.isin(df["Label"].iloc[te_idx], le.classes_)]
-        y_train = le.transform(df["Label"].iloc[tr_idx])
-        y_test = le.transform(df["Label"].iloc[te_idx])
+        # Filter test indices in case of any unobserved label in train.
+        valid_test_mask = np.isin(test_labels, np.unique(train_labels))
+        te_idx = te_idx[valid_test_mask]
+        test_labels = test_labels[valid_test_mask]
+        y_train = le.transform(train_labels)
+        y_test = le.transform(test_labels)
 
         logger.info(f"[{day}] Creating sliding temporal windows (lookback={self.config.lookback})...")
         Xtr, ytr, _ = make_windows(X[tr_idx], y_train, self.config.lookback)

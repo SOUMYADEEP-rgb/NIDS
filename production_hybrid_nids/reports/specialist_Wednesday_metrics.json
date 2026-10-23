@@ -64,5 +64,5 @@
   "attack_vs_benign_average_precision": 0.9973221761543685,
   "attack_vs_benign_roc_auc": 0.9988073713074653,
   "macro_multiclass_roc_auc_ovr": 0.9815861138490196,
-  "split": "StratifiedShuffleSplit 70/30"
+  "split": "StratifiedShuffleSplit 70/30 done"
 }

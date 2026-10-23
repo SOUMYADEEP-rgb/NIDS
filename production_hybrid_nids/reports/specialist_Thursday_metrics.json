@@ -3,59 +3,45 @@
   "classes": [
     "BENIGN",
     "Infiltration",
-    "Web Attack - Brute Force",
-    "Web Attack - Sql Injection",
-    "Web Attack - XSS"
+    "Web Attack"
   ],
-  "n_train_windows": 5000,
-  "n_test_windows": 5000,
+  "n_train_windows": 321268,
+  "n_test_windows": 137682,
   "classification_report": {
     "BENIGN": {
-      "precision": 0.9990366088631984,
-      "recall": 0.20844221105527638,
-      "f1-score": 0.3449193414269084,
-      "support": 4975.0
+      "precision": 0.9995941827948261,
+      "recall": 0.9887386236744345,
+      "f1-score": 0.9941367695728428,
+      "support": 137017.0
     },
     "Infiltration": {
       "precision": 0.0,
       "recall": 0.0,
       "f1-score": 0.0,
-      "support": 0.0
+      "support": 11.0
     },
-    "Web Attack - Brute Force": {
-      "precision": 0.004047558816089046,
-      "recall": 0.9411764705882353,
-      "f1-score": 0.008060453400503778,
-      "support": 17.0
+    "Web Attack": {
+      "precision": 0.2833255921969345,
+      "recall": 0.9327217125382263,
+      "f1-score": 0.4346277164232277,
+      "support": 654.0
     },
-    "Web Attack - Sql Injection": {
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1-score": 0.0,
-      "support": 0.0
-    },
-    "Web Attack - XSS": {
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1-score": 0.0,
-      "support": 8.0
-    },
-    "accuracy": 0.2106,
+    "accuracy": 0.9883935445446754,
     "macro avg": {
-      "precision": 0.2006168335358575,
-      "recall": 0.22992373632870233,
-      "f1-score": 0.07059595896548243,
-      "support": 5000.0
+      "precision": 0.42763992499725356,
+      "recall": 0.6404867787375537,
+      "f1-score": 0.4762548286653568,
+      "support": 137682.0
     },
     "weighted avg": {
-      "precision": 0.9940551875188572,
-      "recall": 0.2106,
-      "f1-score": 0.3432221502613355,
-      "support": 5000.0
+      "precision": 0.9961119905383092,
+      "recall": 0.9883935445446754,
+      "f1-score": 0.9913996330900408,
+      "support": 137682.0
     }
   },
-  "attack_vs_benign_average_precision": 0.01221908781324738,
-  "attack_vs_benign_roc_auc": 0.624024120603015,
-  "macro_multiclass_roc_auc_ovr": 0.620135235972624,
+  "attack_vs_benign_average_precision": 0.688122225102137,
+  "attack_vs_benign_roc_auc": 0.9904267957310166,
+  "macro_multiclass_roc_auc_ovr": 0.9121686450422596,
   "split": "StratifiedShuffleSplit 70/30"
 }
