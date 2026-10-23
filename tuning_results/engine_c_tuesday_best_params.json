@@ -4,7 +4,7 @@
   "status": "ok",
   "lookback": 10,
   "batch_size": 256,
-  "epochs": 4,
+  "epochs": 3,
   "patience": 3,
   "top_k_features": 32,
   "d_token": 32,
@@ -23,10 +23,11 @@
   "weight_decay": 1e-05,
   "max_class_weight": 250.0,
   "seed": 42,
-  "smoke_test": true,
+  "smoke_test": false,
   "smoke_samples": 5000,
-  "val_macro_f1": 1.0,
-  "val_loss": 0.0,
-  "objective": 1.0,
-  "seconds": 83.65
+  "val_macro_f1": 0.3304211059282321,
+  "val_loss": 0.05649103969335556,
+  "objective": 0.3304211059282321,
+  "seconds": 4702.18,
+  "error": NaN
 }

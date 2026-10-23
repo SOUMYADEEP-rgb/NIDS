@@ -123,7 +123,7 @@ def engine_c_trial(base: Path, day: str, config: EngineCConfig, smoke: bool) -> 
     epochs = 2 if smoke else config.epochs
     history = model.fit(
         Xtr, ytr, validation_split=0.15, epochs=epochs,
-        batch_size=config.batch_size, class_weight=weights, verbose=0,
+        batch_size=config.batch_size, class_weight=weights, verbose=1,
         callbacks=[keras.callbacks.EarlyStopping(
             monitor="val_loss", patience=config.patience,
             restore_best_weights=True,
@@ -141,9 +141,10 @@ def engine_c_trial(base: Path, day: str, config: EngineCConfig, smoke: bool) -> 
     }
 
 
-def run_engine_a(trials: int, seed: int, smoke: bool, out: Path) -> None:
+def run_engine_a(trials: int, seed: int, smoke: bool, out: Path, epochs: int | None = None) -> None:
     rng = random.Random(seed)
     rows: list[dict[str, Any]] = []
+    target_epochs = epochs if epochs is not None else (4 if smoke else 12)
     for trial in range(1, trials + 1):
         cfg = FlowAEConfig(
             d_token=choose(rng, [32, 48, 64]),
@@ -153,10 +154,11 @@ def run_engine_a(trials: int, seed: int, smoke: bool, out: Path) -> None:
             dropout=choose(rng, [0.05, 0.1, 0.2]),
             learning_rate=choose(rng, [3e-4, 7e-4, 1e-3]),
             batch_size=choose(rng, [512, 1024]),
-            epochs=4 if smoke else 12,
+            epochs=target_epochs,
             seed=seed,
         )
         started = time.time()
+        print(f"\n--- Starting Engine A trial {trial}/{trials} (epochs={target_epochs}) ---", flush=True)
         try:
             result = engine_a_trial(BASE, cfg, smoke)
             row = {"trial": trial, "status": "ok", **vars(cfg), **result}
@@ -164,23 +166,24 @@ def run_engine_a(trials: int, seed: int, smoke: bool, out: Path) -> None:
             row = {"trial": trial, "status": "error", "error": repr(exc), **vars(cfg)}
         row["seconds"] = round(time.time() - started, 2)
         rows.append(row)
-        print(f"Engine A trial {trial}/{trials}: {row['status']} {row.get('objective')}")
-    df = pd.DataFrame(rows)
-    df.to_csv(out / "engine_a_trials.csv", index=False)
-    good = df[df.status == "ok"].sort_values("objective")
-    if not good.empty:
-        (out / "engine_a_best_params.json").write_text(json.dumps(good.iloc[0].to_dict(), indent=2, default=str))
+        print(f"Engine A trial {trial}/{trials}: {row['status']} objective={row.get('objective')} (took {row['seconds']}s)", flush=True)
+        df = pd.DataFrame(rows)
+        df.to_csv(out / "engine_a_trials.csv", index=False)
+        good = df[df.status == "ok"].sort_values("objective")
+        if not good.empty:
+            (out / "engine_a_best_params.json").write_text(json.dumps(good.iloc[0].to_dict(), indent=2, default=str))
 
 
-def run_engine_c(day: str, trials: int, seed: int, smoke: bool, out: Path) -> None:
+def run_engine_c(day: str, trials: int, seed: int, smoke: bool, out: Path, epochs: int | None = None) -> None:
     rng = random.Random(seed)
     rows: list[dict[str, Any]] = []
+    target_epochs = epochs if epochs is not None else (4 if smoke else 20)
     for trial in range(1, trials + 1):
         cfg = EngineCConfig(
             lookback=choose(rng, [1, 5, 10]),
             batch_size=choose(rng, [256, 512, 1024]),
-            epochs=4 if smoke else 20,
-            patience=3 if smoke else 5,
+            epochs=target_epochs,
+            patience=3 if smoke else min(5, target_epochs),
             d_token=choose(rng, [32, 48, 64]),
             n_heads=choose(rng, [2, 4, 8]),
             n_ft_blocks=choose(rng, [1, 2, 3]),
@@ -193,6 +196,7 @@ def run_engine_c(day: str, trials: int, seed: int, smoke: bool, out: Path) -> No
             smoke_test=smoke,
         )
         started = time.time()
+        print(f"\n--- Starting Engine C ({day}) trial {trial}/{trials} (epochs={target_epochs}) ---", flush=True)
         try:
             result = engine_c_trial(BASE, day, cfg, smoke)
             row = {"trial": trial, "day": day, "status": "ok", **vars(cfg), **result}
@@ -200,12 +204,13 @@ def run_engine_c(day: str, trials: int, seed: int, smoke: bool, out: Path) -> No
             row = {"trial": trial, "day": day, "status": "error", "error": repr(exc), **vars(cfg)}
         row["seconds"] = round(time.time() - started, 2)
         rows.append(row)
-        print(f"Engine C ({day}) trial {trial}/{trials}: {row['status']} {row.get('objective')}")
-    df = pd.DataFrame(rows)
-    df.to_csv(out / f"engine_c_{day.lower()}_trials.csv", index=False)
-    good = df[df.status == "ok"].sort_values("objective", ascending=False)
-    if not good.empty:
-        (out / f"engine_c_{day.lower()}_best_params.json").write_text(json.dumps(good.iloc[0].to_dict(), indent=2, default=str))
+        print(f"Engine C ({day}) trial {trial}/{trials}: {row['status']} objective={row.get('objective')} (took {row['seconds']}s)", flush=True)
+        # Save incrementally after each trial so progress is never lost
+        df = pd.DataFrame(rows)
+        df.to_csv(out / f"engine_c_{day.lower()}_trials.csv", index=False)
+        good = df[df.status == "ok"].sort_values("objective", ascending=False)
+        if not good.empty:
+            (out / f"engine_c_{day.lower()}_best_params.json").write_text(json.dumps(good.iloc[0].to_dict(), indent=2, default=str))
 
 
 def main() -> int:
@@ -213,6 +218,7 @@ def main() -> int:
     parser.add_argument("--engine", choices=["a", "c", "both"], default="both")
     parser.add_argument("--day", default="Tuesday", help="Engine C day used for tuning.")
     parser.add_argument("--trials", type=int, default=3)
+    parser.add_argument("--epochs", type=int, default=None, help="Explicit maximum epochs per trial (e.g. 2, 3, 5).")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--smoke-test", action="store_true", help="Use small data and two epochs per trial.")
     args = parser.parse_args()
@@ -221,9 +227,9 @@ def main() -> int:
     out = ROOT / "tuning_results"
     out.mkdir(exist_ok=True)
     if args.engine in {"a", "both"}:
-        run_engine_a(args.trials, args.seed, args.smoke_test, out)
+        run_engine_a(args.trials, args.seed, args.smoke_test, out, epochs=args.epochs)
     if args.engine in {"c", "both"}:
-        run_engine_c(args.day, args.trials, args.seed, args.smoke_test, out)
+        run_engine_c(args.day, args.trials, args.seed, args.smoke_test, out, epochs=args.epochs)
     print(f"Tuning outputs written to: {out}")
     return 0
 
